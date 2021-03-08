@@ -8,7 +8,7 @@ int main()
 	cin >> firstNumber >> secondNumber;
 
 	TheSmallestCommonMultiple multiple;
-	cout << multiple.SCM(firstNumber, secondNumber);
+	cout << multiple.SCM(abs(firstNumber), abs(secondNumber));
 
 	return 0;
 }
