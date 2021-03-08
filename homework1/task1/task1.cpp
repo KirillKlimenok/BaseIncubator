@@ -11,9 +11,9 @@ int main()
 
 	cout << "Please enter number of mutants: ";
 	cin >> nMutants;
-	cout << "\nPlease enter procent in night: ";
+	cout << endl << "Please enter procent in night: ";
 	cin >> procentInNight;
-	cout << "\nPlease enter numbers kills in day: ";
+	cout << endl << "Please enter numbers kills in day: ";
 	cin >> killInDay;
 
 	if (nMutants == killInDay) {
