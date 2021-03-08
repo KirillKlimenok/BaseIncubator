@@ -8,6 +8,9 @@ int main()
 
 	cout << "Please, enter lines of triangle: " << endl;
 	cin >> firstLine >> secondLine >> thirdLine;
+	firstLine = abs(firstLine);
+	secondLine = abs(secondLine);
+	thirdLine = abs(thirdLine);
 
 	if (firstLine == secondLine == thirdLine) {
 		cout << "this triangle is equilateral" << endl;
