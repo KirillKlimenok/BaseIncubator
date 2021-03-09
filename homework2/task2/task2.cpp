@@ -1,20 +1,24 @@
-﻿// task2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
 
-#include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int firstLine = 0, secondLine = 0, thirdLine = 0;
+
+	cout << "Please, enter lines of triangle: " << endl;
+	cin >> firstLine >> secondLine >> thirdLine;
+	firstLine = abs(firstLine);
+	secondLine = abs(secondLine);
+	thirdLine = abs(thirdLine);
+
+	if (firstLine == secondLine == thirdLine) {
+		cout << "this triangle is equilateral" << endl;
+	}
+	else if (firstLine == secondLine || secondLine == thirdLine || thirdLine == firstLine) {
+		cout << "this triangle is isosceles" << endl;
+	}
+	else {
+		cout << "this triangle is of the general form" << endl;
+	}
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
