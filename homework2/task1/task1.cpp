@@ -3,49 +3,33 @@
 using namespace std;
 
 
-int getRandomNumber(int min, int max)
-{
-	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
-	// Равномерно распределяем рандомное число в нашем диапазоне
-	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
+int greatestCommonDivisor(int firstNumber, int secondNumber) {
+	if (secondNumber == 0) {
+		return firstNumber;
+	}
+	else {
+		greatestCommonDivisor(secondNumber, firstNumber % secondNumber);
+	}
+}
+
+int scm(int firstNumber, int secondNumber) {
+	return (firstNumber * secondNumber) / greatestCommonDivisor(firstNumber, secondNumber);
 }
 
 int main()
 {
-	int randomNumber = 0, inputNumber = 0;
-	bool isRepeat = true;
+	int firstNumber = 0, secondNumber = 0;
 
+	cout << "please, enter two numbers to calculate the smallest common multiple: " << endl;
+	cin >> firstNumber >> secondNumber;
 
-	while (true) {
-		randomNumber = getRandomNumber(1, 100);
-
-		while (true) {
-			cout << "Please, enter your number" << endl;
-			cin >> inputNumber;
-
-			if (inputNumber > randomNumber) {
-				cout << "It's cold, we need a smaller number" << randomNumber << endl;
-			}
-			else if (inputNumber < randomNumber) {
-				cout << "It's cold, we need a higher number" << randomNumber << endl;
-			}
-			else {
-				cout << "Cool, you guessed it" << endl;
-				break;
-			}
-		}
-
-		cout << "Can we play some more ?" << endl;
-		cin >> isRepeat;
-
-		if (!isRepeat) {
-			break;
-		}
-		else {
-			cin.clear();
-			fflush(stdin);
-		}
-
+	if (!cin){
+		cout << "Error!";
+		return -1;
 	}
+	else {}
+
+	cout << scm(firstNumber, secondNumber);
+
 	return 0;
 }
