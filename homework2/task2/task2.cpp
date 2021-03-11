@@ -12,13 +12,21 @@ int main()
 	secondLine = abs(secondLine);
 	thirdLine = abs(thirdLine);
 
-	if (firstLine == secondLine == thirdLine) {
-		cout << "this triangle is equilateral" << endl;
-	}
-	else if (firstLine == secondLine || secondLine == thirdLine || thirdLine == firstLine) {
-		cout << "this triangle is isosceles" << endl;
+	if ((firstLine + secondLine > thirdLine) || secondLine + thirdLine > firstLine || thirdLine + firstLine > secondLine) {
+		if (firstLine == secondLine == thirdLine) {
+			cout << "this triangle is equilateral" << endl;
+		}
+		else if (firstLine == secondLine || secondLine == thirdLine || thirdLine == firstLine) {
+			cout << "this triangle is isosceles" << endl;
+		}
+		else {
+			cout << "this triangle is of the general form" << endl;
+		}
 	}
 	else {
-		cout << "this triangle is of the general form" << endl;
+		cout << "Error" << endl;
+		
+		return -1;
 	}
+
 }
