@@ -26,24 +26,24 @@ int main()
 	}
 
 	if ((firstLine + secondLine > thirdLine) || secondLine + thirdLine > firstLine || thirdLine + firstLine > secondLine) {
-		if (firstLine == secondLine == thirdLine) {
-			cout << "this triangle is equilateral" << endl;
-		}
-		else if (firstLine == secondLine || secondLine == thirdLine || thirdLine == firstLine) {
+	if (firstLine == secondLine == thirdLine) {
+		cout << "this triangle is equilateral" << endl;
+	}
+	else if (firstLine == secondLine || secondLine == thirdLine || thirdLine == firstLine) {
 			if (isRectangularTriangle(firstLine, secondLine, thirdLine) || isRectangularTriangle(secondLine, thirdLine, firstLine) || isRectangularTriangle(thirdLine, firstLine, secondLine)) {
 				cout << "this triangle is isosceles and rectangular" << endl;
 			}
 			else {
-				cout << "this triangle is isosceles" << endl;
-			}
+		cout << "this triangle is isosceles" << endl;
+	}
 
 		}
 		else if (isRectangularTriangle(firstLine, secondLine, thirdLine) || isRectangularTriangle(secondLine, thirdLine, firstLine) || isRectangularTriangle(thirdLine, firstLine, secondLine)) {
 			cout << "this triangle is of the rectangular from" << endl;
 		}
-		else {
-			cout << "this triangle is of the general form" << endl;
-		}
+	else {
+		cout << "this triangle is of the general form" << endl;
+	}
 	}
 	else {
 		cout << "Error" << endl;
