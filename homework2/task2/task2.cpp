@@ -3,12 +3,7 @@
 using namespace std;
 
 bool isRectangularTriangle(double firstLine, double secondLine, double thirdLine) {
-	if (firstLine * firstLine == secondLine * secondLine + thirdLine * thirdLine) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return firstLine * firstLine == secondLine * secondLine + thirdLine * thirdLine;
 }
 
 int main()
@@ -20,6 +15,15 @@ int main()
 	firstLine = abs(firstLine);
 	secondLine = abs(secondLine);
 	thirdLine = abs(thirdLine);
+
+	if (firstLine == 0 || secondLine == 0 || thirdLine == 0) {
+		cout << "Error!" << endl;
+
+		return -1;
+	}
+	else {
+
+	}
 
 	if ((firstLine + secondLine > thirdLine) || secondLine + thirdLine > firstLine || thirdLine + firstLine > secondLine) {
 		if (firstLine == secondLine == thirdLine) {
