@@ -2,6 +2,15 @@
 
 using namespace std;
 
+bool isRectangularTriangle(double firstLine, double secondLine, double thirdLine) {
+	if (firstLine* firstLine = secondLine * secondLine + thirdLine) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 int main()
 {
 	int firstLine = 0, secondLine = 0, thirdLine = 0;
@@ -40,11 +49,4 @@ int main()
 
 }
 
-bool isRectangularTriangle(double firstLine, double secondLine, double thirdLine) {
-	if (firstLine* firstLine = secondLine * secondLine + thirdLine) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+
