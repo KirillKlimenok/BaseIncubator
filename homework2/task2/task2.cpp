@@ -3,7 +3,7 @@
 using namespace std;
 
 bool isRectangularTriangle(double firstLine, double secondLine, double thirdLine) {
-	if (firstLine* firstLine = secondLine * secondLine + thirdLine) {
+	if (firstLine * firstLine == secondLine * secondLine + thirdLine * thirdLine) {
 		return true;
 	}
 	else {
@@ -13,7 +13,7 @@ bool isRectangularTriangle(double firstLine, double secondLine, double thirdLine
 
 int main()
 {
-	int firstLine = 0, secondLine = 0, thirdLine = 0;
+	double firstLine = 0, secondLine = 0, thirdLine = 0;
 
 	cout << "Please, enter lines of triangle: " << endl;
 	cin >> firstLine >> secondLine >> thirdLine;
@@ -35,7 +35,7 @@ int main()
 
 		}
 		else if (isRectangularTriangle(firstLine, secondLine, thirdLine) || isRectangularTriangle(secondLine, thirdLine, firstLine) || isRectangularTriangle(thirdLine, firstLine, secondLine)) {
-			cout << "this triangle is of the rectangular from"
+			cout << "this triangle is of the rectangular from" << endl;
 		}
 		else {
 			cout << "this triangle is of the general form" << endl;
@@ -48,5 +48,3 @@ int main()
 	}
 
 }
-
-
