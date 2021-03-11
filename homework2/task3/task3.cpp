@@ -18,4 +18,5 @@ int main()
 	int number = inputNumber * 10;
 	cout << number % 10;
 
+	return 0;
 }
