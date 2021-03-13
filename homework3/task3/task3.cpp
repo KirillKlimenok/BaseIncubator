@@ -14,6 +14,11 @@ int main()
 	cout << "Please, enter number element: ";
 	cin >> inputNumber;
 
+	if (!cin || inputNumber < 1) {
+		cout << "input error, please try again!" << endl;
+		return -1;
+	}
+
 	while (true) {
 		if (counter == inputNumber - 1) {
 			cout << nFibonachi;
