@@ -1,12 +1,12 @@
 ﻿#include <iostream>
 
 using namespace std;
-//7 15 31 63 127
+
+void numbersWhoHaveUnitsInBinarySystem(int inputNumber);
+
 int main()
 {
 	int inputNumber = 0;
-	int NumberWithUnits = 7;
-	int stepOfBinaryNumbers = 4;
 
 	cout << "Please, enter number: ";
 	cin >> inputNumber;
@@ -15,6 +15,14 @@ int main()
 		cout << "Input error, please restart programm and try again";
 		return -1;
 	}
+	numbersWhoHaveUnitsInBinarySystem(inputNumber);
+
+	return 0;
+}
+
+void numbersWhoHaveUnitsInBinarySystem(int inputNumber) {
+	int NumberWithUnits = 7;
+	int stepOfBinaryNumbers = 4;
 
 	if (inputNumber < 7) {
 		cout << "no numbers";
@@ -32,6 +40,4 @@ int main()
 			}
 		}
 	}
-
-	return 0;
 }
