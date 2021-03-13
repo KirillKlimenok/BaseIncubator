@@ -2,6 +2,8 @@
 
 using namespace std;
 
+int fabonachiNumber(int number);
+
 int main()
 {
 	int inputNumber = 0;
