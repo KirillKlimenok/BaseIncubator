@@ -4,12 +4,7 @@ using namespace std;
 
 int main()
 {
-	int nFibonachi = 0, counter = 0;
 	int inputNumber = 0;
-	int mass[2];
-
-	mass[0] = 0;
-	mass[1] = 1;
 
 	cout << "Please, enter number element: ";
 	cin >> inputNumber;
@@ -19,9 +14,22 @@ int main()
 		return -1;
 	}
 
+	cout << fabonachiNumber;
+
+	return 0;
+}
+
+int fabonachiNumber(int number) {
+	int mass[2];
+	int nFibonachi = 0, counter = 0;
+
+	mass[0] = 0;
+	mass[1] = 1;
+
+
 	while (true) {
 		if (counter == inputNumber - 1) {
-			cout << nFibonachi;
+			return nFibonachi;
 			break;
 		}
 
@@ -32,6 +40,4 @@ int main()
 
 		nFibonachi = mass[0] + mass[1];
 	}
-
-	return 0;
 }
