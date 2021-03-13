@@ -28,16 +28,14 @@ void numbersWhoHaveUnitsInBinarySystem(int inputNumber) {
 		cout << "no numbers";
 	}
 	else {
-
 		for (int i = 0; i <= inputNumber; i++) {
 			if (i == NumberWithUnits) {
 				cout << NumberWithUnits << '	';
+
 				NumberWithUnits = NumberWithUnits + stepOfBinaryNumbers * 2;
 				stepOfBinaryNumbers *= 2;
 			}
-			else {
-
-			}
+			else {}
 		}
 	}
 }
