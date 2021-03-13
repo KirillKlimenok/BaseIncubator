@@ -26,7 +26,6 @@ int fabonachiNumber(int number) {
 	mass[0] = 0;
 	mass[1] = 1;
 
-
 	while (true) {
 		if (counter == inputNumber - 1) {
 			return nFibonachi;
