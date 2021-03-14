@@ -2,25 +2,24 @@
 
 using namespace std;
 
-void numbersWhoHaveUnitsInBinarySystem(int inputNumber);
+void printSuitableNumber(int inputNumber);
+
+int returnEnteredNumber();
 
 int main()
 {
-	int inputNumber = 0;
-
-	cout << "Please, enter number: ";
-	cin >> inputNumber;
+	int inputNumber = returnEnteredNumber();
 
 	if (!cin) {
 		cout << "Input error, please restart programm and try again";
 		return -1;
 	}
-	numbersWhoHaveUnitsInBinarySystem(inputNumber);
+	printSuitableNumber(inputNumber);
 
 	return 0;
 }
 
-void numbersWhoHaveUnitsInBinarySystem(int inputNumber) {
+void printSuitableNumber(int inputNumber) {
 	int NumberWithUnits = 7;
 	int stepOfBinaryNumbers = 4;
 
@@ -38,4 +37,13 @@ void numbersWhoHaveUnitsInBinarySystem(int inputNumber) {
 			else {}
 		}
 	}
+}
+
+int returnEnteredNumber() {
+	int inputNumber;
+
+	cout << "Please, enter number: ";
+	cin >> inputNumber;
+
+	return inputNumber;
 }
