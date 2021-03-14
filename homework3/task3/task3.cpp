@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int fabonachiNumber(int number);
+int returnFabonachiNumber(int number);
 
 int main()
 {
@@ -16,12 +16,12 @@ int main()
 		return -1;
 	}
 
-	cout << fabonachiNumber;
+	cout << returnFabonachiNumber(inputNumber);
 
 	return 0;
 }
 
-int fabonachiNumber(int number) {
+int returnFabonachiNumber(int number) {
 	int mass[2];
 	int nFibonachi = 0, counter = 0;
 
@@ -29,7 +29,7 @@ int fabonachiNumber(int number) {
 	mass[1] = 1;
 
 	while (true) {
-		if (counter == inputNumber - 1) {
+		if (counter == number - 1) {
 			return nFibonachi;
 			break;
 		}
