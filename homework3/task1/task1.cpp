@@ -2,20 +2,17 @@
 
 using namespace std;
 
-double powerNumber(double number, double power);
+double returnPowerNumber(double number, double power);
+double returnEnteredNumber();
+double returnEnteredPower();
 bool isCurrentPower(double number);
 
 int main()
 {
-	double number, power;
-
-	cout << "Please, enter number: ";
-	cin >> number;
-	cout << "and enter power: ";
-	cin >> power;
+	double number = returnEnteredNumber(), power = returnEnteredPower();
 
 	if (isCurrentPower(power)) {
-		cout << powerNumber(number, power);
+		cout << returnPowerNumber(number, power);
 	}
 	else {
 		cout << "Incorrect input, please restart program" << endl;
@@ -25,7 +22,7 @@ int main()
 	return 0;
 }
 
-double powerNumber(double number, double power) {
+double returnPowerNumber(double number, double power) {
 	for (int i = 1; i < power; i++)	number *= number;
 
 	return number;
@@ -33,4 +30,22 @@ double powerNumber(double number, double power) {
 
 bool isCurrentPower(double power) {
 	return (double)((int)power) == power;
+}
+
+double returnEnteredNumber() {
+	double number = 0;
+
+	cout << "Please, enter number: ";
+	cin >> number;
+
+	return number;
+}
+
+double returnEnteredPower() {
+	double power = 0;
+
+	cout << "Please, enter power: ";
+	cin >> power;
+
+	return power;
 }
