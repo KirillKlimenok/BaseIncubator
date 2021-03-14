@@ -23,9 +23,10 @@ int main()
 }
 
 double returnPowerNumber(double number, double power) {
-	for (int i = 1; i < power; i++)	number *= number;
-
-	return number;
+	for (int i = 1; i < abs(power); i++)	number *= number;
+		
+	if (power < 0) return 1 / number;
+	else return number;
 }
 
 bool isCurrentPower(double power) {
