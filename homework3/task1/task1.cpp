@@ -3,16 +3,19 @@
 using namespace std;
 
 double returnPowerNumber(double number, double power);
-double returnEnteredNumber();
+/*double returnEnteredNumber();
 double returnEnteredPower();
+*/
+pair<double, double> inputData();
 bool isCurrentPower(double number);
 
 int main()
 {
-	double number = returnEnteredNumber(), power = returnEnteredPower();
+	pair <double, double> input;
+	input = inputData();
 
-	if (isCurrentPower(power)) {
-		cout << returnPowerNumber(number, power);
+	if (isCurrentPower(input.first)) {
+		cout << returnPowerNumber(input.first, input.second);
 	}
 	else {
 		cout << "Incorrect input, please restart program" << endl;
@@ -23,6 +26,8 @@ int main()
 }
 
 double returnPowerNumber(double number, double power) {
+	if (power == 0) return 1;
+
 	for (int i = 1; i < abs(power); i++)	number *= number;
 		
 	if (power < 0) return 1 / number;
@@ -33,6 +38,18 @@ bool isCurrentPower(double power) {
 	return (double)((int)power) == power;
 }
 
+pair<double, double> inputData() {
+	double number = 0, power = 0;
+
+	cout << "Please, enter number: ";
+	cin >> number;
+	cout << "and enter power: ";
+	cin >> power;
+
+	return {number, power};
+}
+
+/*
 double returnEnteredNumber() {
 	double number = 0;
 
@@ -50,3 +67,4 @@ double returnEnteredPower() {
 
 	return power;
 }
+*/
