@@ -3,9 +3,6 @@
 using namespace std;
 
 double returnPowerNumber(double number, double power);
-/*double returnEnteredNumber();
-double returnEnteredPower();
-*/
 pair<double, double> inputData();
 bool isCurrentPower(double number);
 
@@ -48,23 +45,3 @@ pair<double, double> inputData() {
 
 	return {number, power};
 }
-
-/*
-double returnEnteredNumber() {
-	double number = 0;
-
-	cout << "Please, enter number: ";
-	cin >> number;
-
-	return number;
-}
-
-double returnEnteredPower() {
-	double power = 0;
-
-	cout << "Please, enter power: ";
-	cin >> power;
-
-	return power;
-}
-*/
