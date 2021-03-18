@@ -2,21 +2,22 @@
 
 using namespace std;
 
-string enterInputData(string number, string str);
-string  printFlipNumber(string number);
+int enterInputData(int number, string str);
+void  flipedNumber(int number);
+void printNumber(int number);
 
 int main()
 {
-	string number = "";
+	int number = 0;
 
 	number = enterInputData(number, "number: ");
 
-	cout << printFlipNumber(number);
+	flipedNumber(number);
 
 	return 0;
 }
 
-string enterInputData(string number, string str) {
+int enterInputData(int number, string str) {
 	cout << "Please, enter " << str;
 	cin >> number;
 	cout << endl;
@@ -24,12 +25,16 @@ string enterInputData(string number, string str) {
 	return number;
 }
 
-string  printFlipNumber(string number) {
-	string flipNumber = "";
+void flipedNumber(int number) {
+	do {
+		printNumber(number%10);
+		number /= 10;
+		if (number < 1) {
+			break;
+		}
+	} while (true);
+}
 
-	for (int i = number.length(); i > -1; i--) {
-		flipNumber += number[i];
-	}
-
-	return flipNumber;
+void printNumber(int number) {
+	cout << number;
 }
