@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int enterInputData(int number, string str);
+int enterData(int number, string str);
 void  flipedNumber(int number);
 void printNumber(int number);
 
@@ -10,14 +10,14 @@ int main()
 {
 	int number = 0;
 
-	number = enterInputData(number, "number: ");
+	number = enterData(number, "number: ");
 
 	flipedNumber(number);
 
 	return 0;
 }
 
-int enterInputData(int number, string str) {
+int enterData(int number, string str) {
 	cout << "Please, enter " << str;
 	cin >> number;
 	cout << endl;
