@@ -48,7 +48,8 @@ bool isCurrentData(int day, int month, int year) {
 		if ((month % 2 != 0 && month <= 7) || (month >= 8 && month % 2 == 0)) {
 			return true;
 		}
-		else return false;
+		else {}
+		return false;
 	}
 	else {}
 
