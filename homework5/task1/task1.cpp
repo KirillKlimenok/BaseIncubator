@@ -23,9 +23,6 @@ int main()
 
 	int mass2[] = { 2,1,2,4,3,4,5,2,4,6,7,8,9,1,2,3,10,1,20,21,5 };
 
-	int mass[MASS_SIZE];
-	int* fillingMass = fillingInTheArray(mass);
-
 	printMass(mass2);
 
 	cout << "Visible point: ";
@@ -67,21 +64,6 @@ void printingVisibleTerrainProfile(int* mass, bool isVisible) {
 			}
 		}
 	}
-}
-
-int* fillingInTheArray(int* mass) {
-
-	for (int i = 0; i < MASS_SIZE; i++) {
-		mass[i] = getRandomNumber(0, 20);
-	}
-
-	return mass;
-}
-
-int getRandomNumber(int min, int max) {
-	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
-	// Равномерно распределяем рандомное число в нашем диапазоне
-	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
 }
 
 void printMass(int* mass) {
