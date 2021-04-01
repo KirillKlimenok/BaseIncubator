@@ -14,36 +14,62 @@ using namespace std;
 
 int getRandomNumber(int min, int max);
 int* fillingInTheArray(int* mass);
-void printingVisibleTerrainProfile(int *mass);
+void printingVisibleTerrainProfile(int* mass, bool isVisible);
+void printMass(int* mass);
 
 int main()
 {
 	srand(time(NULL));
 
+	int mass2[] = { 2,1,2,4,3,4,5,2,4,6,7,8,9,1,2,3,10,1,20,21,5 };
+
 	int mass[MASS_SIZE];
 	int* fillingMass = fillingInTheArray(mass);
 
-	printingVisibleTerrainProfile(fillingMass);
+	printMass(mass2);
 
-	system("pause");
+	cout << "Visible point: ";
+	printingVisibleTerrainProfile(mass2, true);
+
+	cout << endl << "unvisible points: ";
+
+	printingVisibleTerrainProfile(mass2, false);
+	//printingVisibleTerrainProfile(mass2);
+
 	return 0;
 }
-	
-void printingVisibleTerrainProfile(int* mass) {
-	cout << mass[0] << "   ";
 
-	int maxNum = 0;
+void printingVisibleTerrainProfile(int* mass, bool isVisible) {
+	int maxNum = mass[0];
 
 	for (int i = 0; i < MASS_SIZE; i++) {
 
-		if (mass[i] > mass[0] && maxNum < mass[i]) {
+		if (mass[0] >= mass[i] && maxNum == mass[0]) {
+			if (isVisible) {
+				cout << mass[i] << "   ";
+			}
+		}
+		else if (mass[i] > mass[0] && maxNum == mass[0]) {
 			maxNum = mass[i];
-			cout << mass[i] << "   ";
+			if (isVisible) {
+				cout << mass[i] << "   ";
+			}
+		}
+		else if (mass[i] >= maxNum) {
+			maxNum = mass[i];
+			if (isVisible) {
+				cout << mass[i] << "   ";
+			}
+		}
+		else {
+			if (!isVisible) {
+				cout << mass[i] << "   ";
+			}
 		}
 	}
 }
 
-int* fillingInTheArray(int *mass) {
+int* fillingInTheArray(int* mass) {
 
 	for (int i = 0; i < MASS_SIZE; i++) {
 		mass[i] = getRandomNumber(0, 20);
@@ -56,4 +82,13 @@ int getRandomNumber(int min, int max) {
 	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
 	// Равномерно распределяем рандомное число в нашем диапазоне
 	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
+}
+
+void printMass(int* mass) {
+	cout << "All points: ";
+
+	for (int i = 0; i < MASS_SIZE; i++) {
+		cout << mass[i] << "   ";
+	}
+	cout << endl;
 }
