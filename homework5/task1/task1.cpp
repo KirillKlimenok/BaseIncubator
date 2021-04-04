@@ -12,7 +12,6 @@ using namespace std;
 Найдите области (точки высот), невидимые для наблюдателя, находящегося в первой точке.
 */
 
-int getRandomNumber(int min, int max);
 int* fillingInTheArray(int* mass);
 void printingVisibleTerrainProfile(int* mass, bool isVisible);
 void printMass(int* mass);
