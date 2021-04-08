@@ -1,20 +1,117 @@
-﻿// task3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
 
-#include <iostream>
+int cubeSize;
+
+using namespace std;
+
+void printMass(int** mass);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int** mass;
+
+
+	cin >> cubeSize;
+	mass = new int* [cubeSize];
+	for (int i = 0; i < cubeSize; i++) {
+		mass[i] = new int[cubeSize];
+	}
+
+	mass[cubeSize][cubeSize] = { 0);
+	printMass(mass);
+
+	retrun 0;
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+void printMass(int** mass) {
+	for (int i = 0; i < cubeSize; i++) {
+		for (int j = 0; j < cubeSize; j++) {
+			cout << mass[i][j] << "	";
+		}
+		cout << endl;
+	}
+}
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+void checkPoints(int mass[][]) {
+	for (int i = 0; i < cubeSize; i++) {
+		for (int i = 0; i < cubeSize; i++) {
+			if (mass[i][j] == 1) {
+				if (isPointsAreAround(i, j)) {
+					mass[i][j] = 0;
+				}
+				else {}
+			}
+		}
+	}
+}
+
+bool isPointsAreAround(int i, int j, int mass[][]) {
+	int conter = 0;
+
+	for (int i = 0; i < 8; i++) {
+		counter + = returnOneIfAroundIsPoint(i, mass);
+	}
+	if (counter > 3) {
+		return true;
+	}
+	else return false;
+}
+
+int returnOneIfAroundIsPoint(int numberAction, int mass[][]) {
+	switch (numberAction)
+	{
+	case 0: {
+		if (mass[i + 1][j]) {
+			return 1;
+		}
+		break;
+	}
+	case 1: {
+		if (mass[i - 1][j] && i > 0) {
+			return 1;
+		}
+		break;
+	}
+	case 2: {
+		if (mass[i + 1][j + 1]) {
+			return 1;
+		}
+		break;
+	}
+	case 3: {
+		if (mass[i - 1][j + 1] && i > 1) {
+			return 1;
+		}
+		break;
+	}
+	case 4: {
+		if (mass[i + 1][j - 1] && j > 0) {
+			return 1;
+		}
+		break;
+	}
+	case 5: {
+		if (mass[i - 1][j - 1] && j > 0 && i > 0) {
+			return 1;
+		}
+		break;
+	}
+	case 6: {
+		if (mass[i][j - 1] && j > 0) {
+			return 1;
+		}
+		break;
+	}
+	case 7: {
+		if (mass[i][j + 1]) {
+			return 1;
+		}
+		break;
+	}
+	default:
+		return 0;
+		break;
+	}
+
+	return 0;
+}
