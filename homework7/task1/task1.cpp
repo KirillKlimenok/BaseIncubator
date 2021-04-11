@@ -10,9 +10,9 @@ string returnReplacingStr(char number);
 
 int main()
 {
-	char numbers[] = "123456789";
+	char numbers[] = "12q3ww456ww789";
 
-	cout << replacingStr(numbers);
+	cout << replacingStr(numbers) << endl;
 	
 	system("pause");
 	return 0;
@@ -40,8 +40,14 @@ string replacingStr(char numbers[]) {
 }
 
 string returnReplacingStr(char number) {
-	int size = number - '0';
 	string str;
+
+	if (number < '0' || number>'9') {
+		str.push_back(number);
+		return str;
+	}
+	int size = number - '0';
+	
 
 	for (int i = 0; i < size; i++) {
 		if (size % 2 == 0) {
@@ -51,7 +57,6 @@ string returnReplacingStr(char number) {
 			str += "-";
 		}
 	}
-	str += " ";
 
 	return str;
 }
