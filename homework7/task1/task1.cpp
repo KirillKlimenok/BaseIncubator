@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
+
+#define SIZE 256
 using namespace std;
 /*ПЛЮС-МИНУС.
 Замените в строке каждую четную цифру плюсами,
@@ -11,9 +13,10 @@ bool isDigit(char number);
 
 int main()
 {
-	char numbers[256];
+	char numbers[SIZE];
 
-	cin.getline(numbers,256);
+	cout << "Please, enter your liine_: ";
+	cin.getline(numbers, SIZE);
 
 	cout << replacingStr(numbers) << endl;
 	
