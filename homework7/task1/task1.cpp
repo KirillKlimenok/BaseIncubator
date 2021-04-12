@@ -7,10 +7,13 @@ using namespace std;
 int getLengthStr(char str[]);
 string replacingStr(char numbers[]);
 string returnReplacingStr(char number);
+bool isDigit(char number);
 
 int main()
 {
-	char numbers[] = "12q3ww456ww789";
+	char numbers[256];
+
+	cin.getline(numbers,256);
 
 	cout << replacingStr(numbers) << endl;
 	
@@ -42,7 +45,7 @@ string replacingStr(char numbers[]) {
 string returnReplacingStr(char number) {
 	string str;
 
-	if (number < '0' || number>'9') {
+	if (!isDigit(number)) {
 		str.push_back(number);
 		return str;
 	}
@@ -59,4 +62,11 @@ string returnReplacingStr(char number) {
 	}
 
 	return str;
+}
+
+bool isDigit(char number) {
+	if (number < '0' || number>'9') {
+		return false;
+	}
+	else return true;
 }
