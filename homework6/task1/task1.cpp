@@ -1,20 +1,142 @@
-﻿// task1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <ctime>
+#include <math.h>
 
-#include <iostream>
+using namespace std;
+int* transparentPoints;
+int massSize = 0;
+int sqare = 0;
+
+/*1. ПРОСВЕТ. Куб состоит из n3 прозрачных и непрозрачных кубиков. Имеется ли хотя бы один просвет?*/
+int getRandomNumber(int min, int max);
+bool isThereAnyClearance(int mass[]);
+int* fillingInTheArray();
+void printCube(int cube[], int linecube);
+void printArray(int transparentPoints[]);
+bool iscleanseInTopView(int mass[], int lineCube);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	srand(static_cast<unsigned int>(time(0)));
+	int lineCube;
+
+	cout << "Please, enter size cube: ";
+	cin >> lineCube;
+
+	massSize = pow(lineCube, 3);
+	sqare = pow(lineCube, 2);
+	int* cube = fillingInTheArray();
+	int smalCube = 1;
+	transparentPoints = new int[lineCube];
+
+	printCube(cube, lineCube);
+
+	if (isThereAnyClearance(cube)) {
+		cout << "Yes" << endl << "first clearance positions: ";
+		printArray(transparentPoints);
+	}
+	else if (iscleanseInTopView(cube, lineCube)) {
+		cout << "Yes" << endl << "first clearance positions: ";
+		printArray(transparentPoints);
+	}
+	else {
+		cout << "Error!";
+	}
+
+
+	return 0;
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+void printArray(int transparentPoints[]) {
+	for (int i = 0; i < sqrt(sqare); i++) {
+		cout << transparentPoints[i] << "  ";
+	}
+}
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+void printCube(int cube[], int linecube) {
+	int counter = 0;
+	double thisSqare = sqare;
+
+	for (int i = 0; i < massSize; i++) {
+		if (counter == linecube) {
+			cout << endl;
+			counter = 0;
+		}
+		cout << "| " << cube[i] << " | ";
+		counter++;
+
+
+		if (i == thisSqare - 1) {
+			cout << "\n";
+			thisSqare += sqare;
+		}
+	}
+}
+
+int getRandomNumber(int min, int max)
+{
+	return 0 + rand() % 2;
+}
+
+int* fillingInTheArray() {
+	int* cube = new int[massSize];
+
+	for (int i = 0; i < massSize; i++) {
+		cube[i] = getRandomNumber(0, 1);
+	}
+
+	return cube;
+}
+
+bool isThereAnyClearance(int mass[]) {
+	bool isAnyClearance = false;
+	int counter = 0;
+	for (int i = 0; i < sqare; i++) {
+		for (int j = i; j < massSize; j += sqare) {
+			if (mass[j] == 0) {
+				transparentPoints[counter] = j;
+				counter++;
+				isAnyClearance = true;
+			}
+			else {
+				counter = 0;
+				isAnyClearance = false;
+				break;
+			}
+		}
+		if (isAnyClearance == true) break;
+	}
+
+	return isAnyClearance;
+}
+
+bool iscleanseInTopView(int mass[], int lineCube)
+{
+	bool isTrue = false;
+	int counter = 1;
+	int cuunterLines = 0;
+
+	for (int i = 0; i < massSize; i += sqare) {
+		for (int j = i; j < sqare * cuunterLines; j += lineCube) {
+
+			if (isTrue && counter == lineCube) {
+				return true;
+			}
+
+			if (mass[j] == 0) {
+				isTrue = true;
+				transparentPoints[counter] = j;
+				counter++;
+			}
+			else {
+				isTrue = false;
+				counter = 1;
+			}
+
+		}
+		cuunterLines++;
+
+	}
+
+	return false;
+}
